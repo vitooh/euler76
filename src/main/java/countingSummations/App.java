@@ -1,11 +1,34 @@
 package countingSummations;
 
+import java.util.*; 
+import java.io.*; 
+
 
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+	int theNumber = 3;
+	if (args.length > 0)  theNumber = Integer.parseInt(args[0]);
+	System.out.println(Arrays.toString(args));
+	int result=0;
+	for (int i = theNumber; i>1; i--) {
+		AppArray appArray = new AppArray(buildArray(theNumber,i));
+		//System.out.println("for"+Arrays.toString(appArray.array)+"count: "+result);
+		if (appArray.ballanced == false) {
+			result++;
+			System.out.println("for count++: "+result);
+		}
+		do {
+			System.out.println("do-start"+Arrays.toString(appArray.array)+"count: "+result);
+			result++;
+			System.out.println("do count++: "+result);
+			appArray = flatArray(appArray);
+			System.out.println("do-end"+Arrays.toString(appArray.array)+"count: "+result);
+		} while (!appArray.ballanced);
+
+	}
+	System.out.println("Result: "+result);
     }
 
     static boolean isBallanced(int[] table) {
@@ -23,6 +46,6 @@ public class App
 
     static AppArray flatArray(AppArray before) {
 	if (before.ballanced) return before;
-	return new AppArray(new int[]{1});
+	return before.flatten();
     }
 }

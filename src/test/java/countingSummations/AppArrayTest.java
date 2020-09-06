@@ -23,5 +23,10 @@ public class AppArrayTest
                 assertEquals( test1.max, 2);
                 assertEquals( test1.min, 1);
                 assertTrue( test1.ballanced );
+		AppArray test2 = new AppArray(new int[]{3,6});
+		assertEquals(test2.min, 3);
+		AppArray test3 = new AppArray(App.buildArray(10,10));
+		assertTrue(test3.ballanced);
+//		assertTrue(Arrays.equals(test.flattened().array, App.buildArray(10,10)));
 	} 
 }

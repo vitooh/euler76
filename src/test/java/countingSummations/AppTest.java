@@ -31,7 +31,9 @@ public class AppTest
     @Test
     public void flatArrayTest()
     { 
-	assertTrue(Arrays.equals( App.flatArray(new AppArray(new int[]{1,1,1,2}).array, new int[]{1,1,1,2} );
-//	assertTrue(Arrays.equals( App.flatArray(new int[]{1,1,1,6}), new int[]{1,1,2,5}));
+	assertTrue( Arrays.equals( App.flatArray(new AppArray(new int[]{1,1,1,2})).array, new int[]{1,1,1,2} ));
+	assertTrue( Arrays.equals( App.flatArray(new AppArray(new int[]{1,1,1,6})).array, new int[]{1,1,2,5} ));
+	assertTrue( Arrays.equals( App.flatArray(new AppArray(new int[]{1,2,3,6})).array, new int[]{2,2,3,5} ));
+	assertTrue( Arrays.equals( App.flatArray(new AppArray(new int[]{3,6})).array, new int[]{4,5} ));
     }
 }
